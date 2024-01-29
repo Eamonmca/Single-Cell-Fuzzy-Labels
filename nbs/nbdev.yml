@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "Single-Cell-Fuzzy-Labels"
+  site-url: "https://Eamonmca.github.io/Single-Cell-Fuzzy-Labels"
+  description: "This GitHub repo offers a method for label transfer in single-cell RNA-seq data using shared embeddings from foundation models. It leverages language model APIs (GPT-3.5 or 4) for harmonizing label sets, enhancing transfer interpretation and facilitating basic metric evaluation."
+  repo-branch: main
+  repo-url: "https://github.com/Eamonmca/Single-Cell-Fuzzy-Labels"
