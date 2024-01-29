@@ -16,6 +16,7 @@ def knn_majority_voting(indices, reference_labels):
     return query_labels
 
 
+
 # %% ../nbs/02_KNN_Label_transfer.ipynb 4
 def knn_weighted_voting(indices, distances, reference_labels):
     "Determines the final label for each point in the query dataset using weighted voting based on the labels and distances of the k nearest neighbors in the reference dataset."
