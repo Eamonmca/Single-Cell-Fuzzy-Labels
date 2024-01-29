@@ -5,8 +5,23 @@ __all__ = ['knn_majority_voting', 'knn_weighted_voting', 'calculate_centroids', 
            'run_label_transfer']
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 3
-def knn_majority_voting(indices, reference_labels):
-    "Determines the final label for each point in the query dataset using majority voting based on the labels of the k nearest neighbors in the reference dataset."
+from typing import List
+from collections import Counter
+
+def knn_majority_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
+                        reference_labels: List[str] # A list of labels corresponding to the points in the reference dataset.
+                        ):
+    
+    """
+    Assigns labels to query dataset points using majority voting from k-nearest neighbors.
+
+    Parameters:
+    - indices (List[List[int]]): A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
+    - reference_labels (List[str]): A list of labels corresponding to the points in the reference dataset.
+
+    Returns:
+    - List[str]: A list of labels for each point in the query dataset, determined by majority voting.
+    """
     query_labels = []
     for ind in indices:
         neighbor_labels = [reference_labels[i] for i in ind]
@@ -14,7 +29,6 @@ def knn_majority_voting(indices, reference_labels):
         most_common_label = label_counts.most_common(1)[0][0]
         query_labels.append(most_common_label)
     return query_labels
-
 
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 4

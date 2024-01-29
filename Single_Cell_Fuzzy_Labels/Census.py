@@ -13,11 +13,8 @@ tissue: str = 'blood'  # The type of tissue for which the data is to be filtered
     """
     Download census data and retrieve embeddings for the specified organism and tissue with default parameters.
 
-    :param census_version: Version of the census data to use, default is '2023-12-15'
-    :param embedding_uri: URI for the embeddings data, default is the provided S3 bucket path
-    :param organism: Organism to filter by, default is 'homo_sapiens'
-    :param tissue: Tissue to filter by, default is 'blood'
-    :return: Anndata object with embeddings
+    Returns:
+        An Anndata object with embeddings 
     """
     
     import cellxgene_census

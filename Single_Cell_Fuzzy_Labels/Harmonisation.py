@@ -10,11 +10,6 @@ def match_cell_labels(existing_labels_set:set, # A set of existing cell type lab
     """
     Match cell type labels from two sets using OpenAI's GPT-4 model.
 
-    Parameters:
-        existing_labels_set: A set of existing cell type labels.
-        predicted_labels_set: A set of predicted cell type labels.
-        openai_api_key: The API key for OpenAI. If not provided, it will be taken from the environment variable 'OPENAI_API_KEY'.
-
     Returns:
         A dictionary representing the JSON object with matched labels.
     """
@@ -65,13 +60,7 @@ def map_labels_to_categories(label_list: list, # A list of labels that need to b
     
     """
     Maps each label in `label_list` to its corresponding category based on `label_dict`.
-
-    Parameters:
-    - `label_list`: list of str
-        A list of labels to be categorized.
-    - `label_dict`: dict
-        A dictionary mapping categories to labels.
-
+    
     Returns:
     - list of str
         A list of categories corresponding to each label in `label_list`.
