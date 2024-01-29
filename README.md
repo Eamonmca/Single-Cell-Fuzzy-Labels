@@ -79,8 +79,3 @@ Optional steps before label transfer:
 
 For more detailed usage instructions and examples, refer to the
 documentation and the tutorials included in the GitHub repository.
-
-``` python
-```
-
-    2
