@@ -59,7 +59,10 @@ def match_cell_labels(existing_labels_set:set, # A set of existing cell type lab
 
 
 # %% ../nbs/03_Label_Set_harmonisation.ipynb 4
-def map_labels_to_categories(label_list: list, label_dict: dict) -> list:
+def map_labels_to_categories(label_list: list, # A list of labels that need to be categorized
+                             label_dict: dict # A dictionary where keys are categories and values are lists of labels belonging to those categories) -> list: 
+):
+    
     """
     Maps each label in `label_list` to its corresponding category based on `label_dict`.
 

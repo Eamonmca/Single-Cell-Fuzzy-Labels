@@ -4,7 +4,12 @@
 __all__ = ['download_and_embed_census_data']
 
 # %% ../nbs/01_download_embeddings_census.ipynb 4
-def download_and_embed_census_data(census_version='2023-12-15', embedding_uri='s3://cellxgene-contrib-public/contrib/cell-census/soma/2023-12-15/CxG-contrib-2', organism='homo_sapiens', tissue='blood'):
+def download_and_embed_census_data(census_version: str = '2023-12-15',  # The version date of the CELLxGENE census data to be used.
+embedding_uri: str = 's3://cellxgene-contrib-public/contrib/cell-census/soma/2023-12-15/CxG-contrib-2',  # The URI where the embeddings are stored, typically an S3 bucket path.
+organism: str = 'homo_sapiens',  # The scientific name of the organism for which the data is to be filtered.
+tissue: str = 'blood'  # The type of tissue for which the data is to be filtered
+):
+
     """
     Download census data and retrieve embeddings for the specified organism and tissue with default parameters.
 
