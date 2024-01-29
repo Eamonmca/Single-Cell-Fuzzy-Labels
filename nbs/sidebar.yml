@@ -5,3 +5,4 @@ website:
       - 00_core.ipynb
       - 01_download_embeddings_census.ipynb
       - 02_KNN_Label_transfer.ipynb
+      - 03_Label_Set_harmonisation.ipynb
