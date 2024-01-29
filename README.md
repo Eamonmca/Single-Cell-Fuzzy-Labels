@@ -23,7 +23,8 @@ pip install Single_Cell_Fuzzy_Labels
 
 ## How to use
 
-# To utilize the `Single-Cell-Fuzzy-Labels` library in your single-cell RNA-seq data analysis, follow these steps:
+To utilize the `Single-Cell-Fuzzy-Labels` library in your single-cell
+RNA-seq data analysis, follow these steps:
 
 1.  Install the library using pip:
 
