@@ -6,12 +6,11 @@ __all__ = ['match_cell_labels', 'map_labels_to_categories']
 # %% ../nbs/03_Label_Set_harmonisation.ipynb 3
 def match_cell_labels(existing_labels_set:set, # A set of existing cell type labels
                       predicted_labels_set:set, # A set of predicted cell type labels
-                      openai_api_key:str=None): # The API key for OpenAI. If not provided, it will be taken from the environment variable 'OPENAI_API_KEY'
+                      openai_api_key:str=None  # The API key for OpenAI. If not provided, it will be taken from the environment variable 'OPENAI_API_KEY'
+                      ) -> dict: # A dictionary representing the JSON object with matched labels.
+    
     """
     Match cell type labels from two sets using OpenAI's GPT-4 model.
-
-    Returns:
-        A dictionary representing the JSON object with matched labels.
     """
     
     from openai import OpenAI
@@ -55,15 +54,11 @@ def match_cell_labels(existing_labels_set:set, # A set of existing cell type lab
 
 # %% ../nbs/03_Label_Set_harmonisation.ipynb 4
 def map_labels_to_categories(label_list: list, # A list of labels that need to be categorized
-                             label_dict: dict # A dictionary where keys are categories and values are lists of labels belonging to those categories) -> list: 
-):
+                             label_dict: dict # A dictionary where keys are categories and values are lists of labels belonging to those categories
+                             ) -> list: # Returns a list of categories corresponding to each label in `label_list`.
     
     """
     Maps each label in `label_list` to its corresponding category based on `label_dict`.
-    
-    Returns:
-    - list of str
-        A list of categories corresponding to each label in `label_list`.
     """
     label_to_category = {}
 

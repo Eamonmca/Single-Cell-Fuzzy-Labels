@@ -24,7 +24,8 @@ def knn_majority_voting(indices: List[List[int]], # A list of lists, where each 
 
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 7
-from typing import List, Dict as List, Dict
+from typing import List as List
+from typing import Dict as Dict
 from collections import Counter
 
 def knn_weighted_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
