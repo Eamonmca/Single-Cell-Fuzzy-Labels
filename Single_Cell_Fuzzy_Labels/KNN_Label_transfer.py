@@ -56,8 +56,9 @@ def knn_weighted_voting(indices: List[List[int]], # A list of lists, where each 
 
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 9
-from collections import defaultdict, Counter
 import numpy as np
+from collections import defaultdict, Counter
+
 
 def calculate_centroids(reference_data: List[List[float]], # A list of lists, where each sublist represents a data point in the reference dataset.
                         reference_labels: List[str] # A list of labels corresponding to the points in the reference dataset.
@@ -65,6 +66,7 @@ def calculate_centroids(reference_data: List[List[float]], # A list of lists, wh
     """
     Calculates the centroids for each label in the reference dataset.
     """
+
     # Initialize a dictionary to store the sum of data points for each label.
     label_sums = defaultdict(lambda: np.zeros(len(reference_data[0])))
     
