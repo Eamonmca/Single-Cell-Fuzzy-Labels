@@ -10,17 +10,9 @@ from collections import Counter
 
 def knn_majority_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
                         reference_labels: List[str] # A list of labels corresponding to the points in the reference dataset.
-                        ):
-    
+                        ) -> List[str]: # A list of labels for each point in the query dataset, determined by majority voting.
     """
     Assigns labels to query dataset points using majority voting from k-nearest neighbors.
-
-    Parameters:
-    - indices (List[List[int]]): A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
-    - reference_labels (List[str]): A list of labels corresponding to the points in the reference dataset.
-
-    Returns:
-    - List[str]: A list of labels for each point in the query dataset, determined by majority voting.
     """
     query_labels = []
     for ind in indices:
@@ -38,10 +30,9 @@ from collections import Counter
 def knn_weighted_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
                         distances: List[List[float]], # A list of lists, where each sublist contains the distances of the k-nearest neighbors from a given query point.
                         reference_labels: List[str] # A list of labels corresponding to the points in the reference dataset.
-                        ):
+                        ) -> List[str]: # A list of labels for each point in the query dataset, determined by weighted voting.
     """
-    Returns:
-    - List[str]: A list of labels for each point in the query dataset, determined by weighted voting.
+    Assigns labels to query dataset points using weighted voting from k-nearest neighbors.
     """
     query_labels = []
     for ind, dist in zip(indices, distances):
@@ -123,6 +114,7 @@ def run_label_transfer(embedding_array_reference: np.ndarray, # A numpy array re
                        label_consensus: str = 'majority_voting', # The label consensus method to use. Can be 'majority_voting', 'weighted_voting', or 'centroid_based'.
                        timed: bool = False # Whether to return the time taken for label transfer.
                        ) -> Union[List[str], Tuple[List[str], float]]: # Returns a list of labels for the query dataset. If timed is True, also returns the time taken for label transfer.
+    
     "Transfers labels from a reference dataset to a query dataset using FAISS."
     
     
