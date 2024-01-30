@@ -3,45 +3,40 @@
 # %% auto 0
 __all__ = ['download_census_data']
 
-# %% ../nbs/01_download_embeddings_census.ipynb 4
-def download_census_data(census_version: str = '2023-12-15',  # The version date of the CELLxGENE census data to be used.
-embedding_uri: str = 's3://cellxgene-contrib-public/contrib/cell-census/soma/2023-12-15/CxG-contrib-2',  # The URI where the embeddings are stored, typically an S3 bucket path.
-organism: str = 'homo_sapiens',  # The scientific name of the organism for which the data is to be filtered.
-tissue: str = 'blood',  # The type of tissue for which the data is to be filtered
-test: bool = False # Defines wether the data should be subsetted to specifcly include macrophages to avoid downloading a very large dataset as the test case.
-):
+# %% ../nbs/01_download_embeddings_census.ipynb 5
+from scanpy import AnnData
 
+def download_census_data(
+    census_version: str = '2023-12-15',  # The version date of the CELLxGENE census data to be used.
+    embedding_uri: str = 's3://cellxgene-contrib-public/contrib/cell-census/soma/2023-12-15/CxG-contrib-2',  # The URI where the embeddings are stored, typically an S3 bucket path.
+    organism: str = 'homo_sapiens',  # The scientific name of the organism for which the data is to be filtered.
+    tissue: str = 'blood',  # The type of tissue for which the data is to be filtered
+    test: bool = False  # Defines whether the data should be subsetted to specifically include macrophages to avoid downloading a very large dataset as the test case.
+) -> AnnData:  # An Anndata object with the precomputed embeddings 
     """
-    Download census data and retrieve embeddings for the specified organism and tissue with default parameters.
-
-    Returns:
-        An Anndata object with embeddings 
+    Download census data and retrieve embeddings for the specified organism and tissue with default parameters. 
     """
-    
     import cellxgene_census
     from cellxgene_census.experimental import get_embedding
 
     # Open the census data for the given version
     census = cellxgene_census.open_soma(census_version=census_version)
 
-    if test :
-            # Get the Anndata object for the specified organism and tissue
-            adata = cellxgene_census.get_anndata(
-                census,
-                organism=organism,
-                measurement_name="RNA",
-                obs_value_filter=f"tissue_general == '{tissue}' and cell_type == 'macrophage'"
-            )
-    
-    
-    else :
+    # Get the Anndata object for the specified organism and tissue
+    if test:
+        adata = cellxgene_census.get_anndata(
+            census,
+            organism=organism,
+            measurement_name="RNA",
+            obs_value_filter=f"tissue_general == '{tissue}' and cell_type == 'macrophage'"
+        )
+    else:
         adata = cellxgene_census.get_anndata(
             census,
             organism=organism,
             measurement_name="RNA",
             obs_value_filter=f"tissue_general == '{tissue}'"
         )
-
 
     # Retrieve embeddings using the soma_joinid from the Anndata object
     embeddings = get_embedding(census_version, embedding_uri, adata.obs["soma_joinid"].to_numpy())
