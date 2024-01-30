@@ -5,7 +5,7 @@ __all__ = ['knn_majority_voting', 'knn_weighted_voting', 'calculate_centroids', 
            'run_label_transfer']
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 5
-from typing import List
+from typing import List as List
 from collections import Counter
 
 def knn_majority_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
@@ -24,7 +24,7 @@ def knn_majority_voting(indices: List[List[int]], # A list of lists, where each 
 
 
 # %% ../nbs/02_KNN_Label_transfer.ipynb 7
-from typing import List, Dict
+from typing import List, Dict as List, Dict
 from collections import Counter
 
 def knn_weighted_voting(indices: List[List[int]], # A list of lists, where each sublist contains the indices of the k-nearest neighbors in the reference dataset for a given query point.
