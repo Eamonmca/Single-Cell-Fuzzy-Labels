@@ -61,11 +61,9 @@ linguistic similarity.
 The `fuzz1_score` evaluates this mapping’s accuracy, akin to the F1
 score, using the formula:
 
-\$\$
-
-= 2
-
-\$\$
+$$
+\text{fuzz1\textunderscore score} = 2 \times \frac{(\text{Precision} \times \text{Recall})}{(\text{Precision} + \text{Recall})}
+$$
 
 Precision is the ratio of correct predictions to total predictions,
 while Recall is the ratio of correct predictions to total existing
