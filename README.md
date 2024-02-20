@@ -350,3 +350,57 @@ plt.show()
 ```
 
 ![](index_files/figure-commonmark/cell-26-output-1.png)
+
+``` python
+import matplotlib.pyplot as plt
+
+medium_list = query.obs['medium'].unique().tolist()
+for medium in medium_list:
+    medium_subset = query[query.obs['medium'] == medium]
+    transfers = viz.map_label_transfers(medium_subset, 'predicted_labels', 'celltype_l1')
+    viz.visualize_label_distribution(transfers, fuzz1_score=None, title=f'label transfer distribution {medium}')
+      
+    plt.tight_layout()
+    plt.show()
+    
+    fuzz_1 = viz.calculate_fuzz_1(medium_subset, reference_label='celltype_l1', predicted_query_label='mapped_predictions')
+    transfers = viz.map_label_transfers(medium_subset, 'mapped_predictions', 'celltype_l1')
+    
+
+    viz.visualize_label_distribution(transfers, fuzz1_score=fuzz_1, title=f'label transfer distribution fuzz_1 {medium}', proportions_flag = 'md', matched = True)
+    
+    plt.tight_layout()
+    plt.show()
+```
+
+![](index_files/figure-commonmark/cell-27-output-1.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-3.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-5.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-7.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-9.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-11.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-13.png)
+
+    <Figure size 640x480 with 0 Axes>
+
+![](index_files/figure-commonmark/cell-27-output-15.png)
+
+    <Figure size 640x480 with 0 Axes>
