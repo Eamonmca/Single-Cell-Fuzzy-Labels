@@ -5,3 +5,10 @@ website:
       - 01_download_embeddings_census.ipynb
       - 02_KNN_Label_transfer.ipynb
       - 03_Label_Set_harmonisation.ipynb
+      - 04_embed_data.ipynb
+      - visualization .ipynb
+      - section: UCE
+        contents:
+          - section: data_proc
+            contents:
+              - UCE/data_proc/Create New Species Files.ipynb
