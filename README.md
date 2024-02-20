@@ -266,10 +266,8 @@ plt.show()
 In single cell data analysis, a common issue arises when dealing with
 annotations such as cell types. Even for identical cells, the annotation
 sets may not match perfectly. This discrepancy can be due to various
-factors such as differences in annotation methods, experimental
-conditions, or even biological variability. This inconsistency poses a
-significant challenge in integrating and comparing single cell datasets
-across different studies or conditions.
+factors such as differences in annotation methods, different naming
+conventions, spelling, different resolotions, groupings of subtypes etc.
 
 Single-Cell-Fuzzy-Labels, provides a solution to this problem. It uses a
 fuzzy labeling approach to harmonize the cell type annotations across
@@ -314,7 +312,7 @@ Label_alias_dict
      'Multiciliated (non-nasal)': 'Multiciliated',
      'Hillock-like': 'Rare cells',
      'pre-TB secretory': 'Secretory',
-     'SMG mucous': 'Goblet',
+     'SMG mucous': 'Secretory',
      'Tuft': 'Rare cells',
      'Goblet (subsegmental)': 'Goblet',
      'SMG duct': 'Secretory',
@@ -326,11 +324,10 @@ In this section, we will utilize the ‘harmonise’ function from the
 Single-Cell-Fuzzy-Labels library. This function is designed to address
 the common issue in single cell data analysis where identical cells may
 have different annotations due to various factors such as differences in
-annotation methods, experimental conditions, or biological variability.
-The ‘harmonise’ function uses a fuzzy labeling approach to match cell
-type labels across different datasets, thereby enabling more accurate
-integration and comparison of single cell datasets from different
-studies or conditions.
+annotation methods. The ‘harmonise’ function uses a fuzzy labeling
+approach to match cell type labels across different datasets, thereby
+enabling more accurate integration and comparison of single cell
+datasets with different annotation schemas.
 
 ``` python
 query.obs['mapped_predictions'] = harmonise.map_old_labels_to_new(list(query.obs['predicted_labels'].values), Label_alias_dict)
@@ -358,7 +355,7 @@ medium_list = query.obs['medium'].unique().tolist()
 for medium in medium_list:
     medium_subset = query[query.obs['medium'] == medium]
     transfers = viz.map_label_transfers(medium_subset, 'predicted_labels', 'celltype_l1')
-    viz.visualize_label_distribution(transfers, fuzz1_score=None, title=f'label transfer distribution {medium}')
+    viz.visualize_label_distribution(transfers, fuzz1_score=None, title=f'label transfer {medium}')
       
     plt.tight_layout()
     plt.show()
@@ -367,7 +364,7 @@ for medium in medium_list:
     transfers = viz.map_label_transfers(medium_subset, 'mapped_predictions', 'celltype_l1')
     
 
-    viz.visualize_label_distribution(transfers, fuzz1_score=fuzz_1, title=f'label transfer distribution fuzz_1 {medium}', proportions_flag = 'md', matched = True)
+    viz.visualize_label_distribution(transfers, fuzz1_score=fuzz_1, title=f'label transfer fuzz_1 {medium}', proportions_flag = 'md', matched = True)
     
     plt.tight_layout()
     plt.show()
