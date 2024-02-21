@@ -1,0 +1,221 @@
+// Cell Type Categorization
+digraph {
+	subgraph "cluster_Basal resting" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Basal resting"
+		B
+		a
+		s
+		a
+		l
+	}
+	subgraph "cluster_Club (nasal)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Club (nasal)"
+		S
+		e
+		c
+		r
+		e
+		t
+		o
+		r
+		y
+	}
+	subgraph "cluster_Club (non-nasal)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Club (non-nasal)"
+		S
+		e
+		c
+		r
+		e
+		t
+		o
+		r
+		y
+	}
+	subgraph "cluster_Goblet (nasal)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Goblet (nasal)"
+		G
+		o
+		b
+		l
+		e
+		t
+	}
+	subgraph cluster_Suprabasal {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label=Suprabasal
+		S
+		u
+		p
+		r
+		a
+		b
+		a
+		s
+		a
+		l
+	}
+	subgraph cluster_Deuterosomal {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label=Deuterosomal
+		D
+		e
+		u
+		t
+		e
+		r
+		o
+		s
+		o
+		m
+		a
+		l
+	}
+	subgraph "cluster_Multiciliated (non-nasal)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Multiciliated (non-nasal)"
+		M
+		u
+		l
+		t
+		i
+		c
+		i
+		l
+		i
+		a
+		t
+		e
+		d
+	}
+	subgraph "cluster_Hillock-like" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Hillock-like"
+		B
+		a
+		s
+		a
+		l
+	}
+	subgraph "cluster_pre-TB secretory" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="pre-TB secretory"
+		S
+		e
+		c
+		r
+		e
+		t
+		o
+		r
+		y
+	}
+	subgraph "cluster_SMG mucous" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="SMG mucous"
+		G
+		o
+		b
+		l
+		e
+		t
+	}
+	subgraph cluster_Tuft {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label=Tuft
+		R
+		a
+		r
+		e
+		" "
+		c
+		e
+		l
+		l
+		s
+	}
+	subgraph "cluster_Goblet (subsegmental)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Goblet (subsegmental)"
+		G
+		o
+		b
+		l
+		e
+		t
+	}
+	subgraph "cluster_SMG duct" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="SMG duct"
+		S
+		e
+		c
+		r
+		e
+		t
+		o
+		r
+		y
+	}
+	subgraph cluster_Ionocyte {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label=Ionocyte
+		R
+		a
+		r
+		e
+		" "
+		c
+		e
+		l
+		l
+		s
+	}
+	subgraph "cluster_Multiciliated (nasal)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Multiciliated (nasal)"
+		M
+		u
+		l
+		t
+		i
+		c
+		i
+		l
+		i
+		a
+		t
+		e
+		d
+	}
+	subgraph "cluster_Goblet (bronchial)" {
+		node [color=white style=filled]
+		color=lightgrey style=filled
+		label="Goblet (bronchial)"
+		G
+		o
+		b
+		l
+		e
+		t
+	}
+}

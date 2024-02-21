@@ -47,6 +47,8 @@ d = { 'settings': { 'branch': 'main',
                                               'Single_Cell_Fuzzy_Labels.viz.map_label_transfers': ( 'visualization '
                                                                                                     '.html#map_label_transfers',
                                                                                                     'Single_Cell_Fuzzy_Labels/viz.py'),
+                                              'Single_Cell_Fuzzy_Labels.viz.type_map_graph': ( 'visualization .html#type_map_graph',
+                                                                                               'Single_Cell_Fuzzy_Labels/viz.py'),
                                               'Single_Cell_Fuzzy_Labels.viz.visualize_label_distribution': ( 'visualization '
                                                                                                              '.html#visualize_label_distribution',
                                                                                                              'Single_Cell_Fuzzy_Labels/viz.py')}}}

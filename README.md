@@ -257,11 +257,50 @@ print(transfers.head(10))
     Multiciliated (nasal)    0.000000  0.000000   0.000000  0.000000    0.000000  
 
 ``` python
+transfers
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+| celltype_l1               | Basal    | Cycling Basal | Deuterosomal | Multiciliated | Suprabasal | Squamous | Secretory | Goblet   | Rare cells |
+|---------------------------|----------|---------------|--------------|---------------|------------|----------|-----------|----------|------------|
+| predicted_labels          |          |               |              |               |            |          |           |          |            |
+| Basal resting             | 0.823691 | 0.125148      | 0.000000     | 0.001574      | 0.027155   | 0.000394 | 0.020071  | 0.001181 | 0.000787   |
+| Club (nasal)              | 0.100762 | 0.021675      | 0.002343     | 0.000000      | 0.295841   | 0.042765 | 0.473345  | 0.060340 | 0.002929   |
+| Club (non-nasal)          | 0.003484 | 0.000581      | 0.002904     | 0.000000      | 0.035424   | 0.001161 | 0.448897  | 0.505807 | 0.001742   |
+| Deuterosomal              | 0.037838 | 0.000000      | 0.621622     | 0.275676      | 0.005405   | 0.005405 | 0.048649  | 0.005405 | 0.000000   |
+| Goblet (bronchial)        | 0.000000 | 0.000000      | 0.000000     | 0.000000      | 0.000000   | 0.000000 | 0.208333  | 0.791667 | 0.000000   |
+| Goblet (nasal)            | 0.011701 | 0.000900      | 0.009901     | 0.000900      | 0.016202   | 0.027003 | 0.549055  | 0.384338 | 0.000000   |
+| Goblet (subsegmental)     | 0.000000 | 0.000000      | 0.000000     | 0.000000      | 0.000000   | 0.000000 | 0.000000  | 1.000000 | 0.000000   |
+| Hillock-like              | 0.555556 | 0.157233      | 0.000000     | 0.000000      | 0.174004   | 0.109015 | 0.004193  | 0.000000 | 0.000000   |
+| Ionocyte                  | 0.200000 | 0.000000      | 0.000000     | 0.000000      | 0.000000   | 0.000000 | 0.800000  | 0.000000 | 0.000000   |
+| Multiciliated (nasal)     | 0.000000 | 0.000000      | 0.000000     | 1.000000      | 0.000000   | 0.000000 | 0.000000  | 0.000000 | 0.000000   |
+| Multiciliated (non-nasal) | 0.012500 | 0.000000      | 0.011538     | 0.975962      | 0.000000   | 0.000000 | 0.000000  | 0.000000 | 0.000000   |
+| SMG duct                  | 0.000000 | 0.000000      | 0.000000     | 0.000000      | 0.090909   | 0.022727 | 0.681818  | 0.204545 | 0.000000   |
+| SMG mucous                | 0.000000 | 0.000000      | 0.000000     | 0.000000      | 0.000000   | 0.000000 | 0.111111  | 0.888889 | 0.000000   |
+| Suprabasal                | 0.174881 | 0.087440      | 0.000000     | 0.000000      | 0.577107   | 0.015898 | 0.144674  | 0.000000 | 0.000000   |
+| Tuft                      | 0.000000 | 0.000000      | 0.133333     | 0.000000      | 0.000000   | 0.000000 | 0.000000  | 0.000000 | 0.866667   |
+| pre-TB secretory          | 0.011348 | 0.002837      | 0.005674     | 0.002837      | 0.080851   | 0.001418 | 0.472340  | 0.411348 | 0.011348   |
+
+</div>
+
+``` python
 viz.visualize_label_distribution(transfers, fuzz1_score=None, title='label transfer distribution')
 plt.show()
 ```
 
-![](index_files/figure-commonmark/cell-19-output-1.png)
+![](index_files/figure-commonmark/cell-20-output-1.png)
 
 In single cell data analysis, a common issue arises when dealing with
 annotations such as cell types. Even for identical cells, the annotation
@@ -310,7 +349,7 @@ Label_alias_dict
      'Suprabasal': 'Suprabasal',
      'Deuterosomal': 'Deuterosomal',
      'Multiciliated (non-nasal)': 'Multiciliated',
-     'Hillock-like': 'Rare cells',
+     'Hillock-like': 'Basal',
      'pre-TB secretory': 'Secretory',
      'SMG mucous': 'Secretory',
      'Tuft': 'Rare cells',
@@ -319,6 +358,12 @@ Label_alias_dict
      'Ionocyte': 'Rare cells',
      'Multiciliated (nasal)': 'Multiciliated',
      'Goblet (bronchial)': 'Goblet'}
+
+``` python
+viz.type_map_graph(Label_alias_dict)
+```
+
+![](index_files/figure-commonmark/cell-26-output-1.png)
 
 In this section, we will utilize the ‘harmonise’ function from the
 Single-Cell-Fuzzy-Labels library. This function is designed to address
@@ -346,7 +391,7 @@ viz.visualize_label_distribution(transfers, fuzz1_score=fuzz_1, title='label tra
 plt.show()
 ```
 
-![](index_files/figure-commonmark/cell-26-output-1.png)
+![](index_files/figure-commonmark/cell-28-output-1.png)
 
 ``` python
 import matplotlib.pyplot as plt
@@ -370,34 +415,34 @@ for medium in medium_list:
     plt.show()
 ```
 
-![](index_files/figure-commonmark/cell-27-output-1.png)
+![](index_files/figure-commonmark/cell-29-output-1.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-3.png)
+![](index_files/figure-commonmark/cell-29-output-3.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-5.png)
+![](index_files/figure-commonmark/cell-29-output-5.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-7.png)
+![](index_files/figure-commonmark/cell-29-output-7.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-9.png)
+![](index_files/figure-commonmark/cell-29-output-9.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-11.png)
+![](index_files/figure-commonmark/cell-29-output-11.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-13.png)
+![](index_files/figure-commonmark/cell-29-output-13.png)
 
     <Figure size 640x480 with 0 Axes>
 
-![](index_files/figure-commonmark/cell-27-output-15.png)
+![](index_files/figure-commonmark/cell-29-output-15.png)
 
     <Figure size 640x480 with 0 Axes>
